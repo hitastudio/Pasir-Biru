@@ -1,0 +1,430 @@
+/* --- Root Variables --- */
+:root {
+    --primary-blue: #0077b6;
+    --ocean-cyan: #00b4d8;
+    --soft-blue: #f0f8ff;
+    --sand-beige: #e9c46a;
+    --sunset-orange: #f4a261;
+    --text-dark: #2d3436;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.7;
+    background-color: #fdfdfd;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding { padding: 80px 0; }
+.bg-light { background-color: var(--soft-blue); }
+.bg-blue { background-color: var(--primary-blue); }
+.text-white { color: white !important; }
+
+/* --- Typography --- */
+h2.section-title {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    margin-bottom: 50px;
+    position: relative;
+    color: var(--primary-blue);
+}
+
+h2.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--sand-beige);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Navigation --- */
+.navbar {
+    background: var(--white);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo span { color: var(--ocean-cyan); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary-blue); }
+
+/* --- Hero Section --- */
+#hero {
+    height: 85vh;
+    background: linear-gradient(rgba(0, 119, 182, 0.7), rgba(0, 180, 216, 0.6)), 
+                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Animasi Fade Up untuk Hero */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-buttons {
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+}
+
+.hero-content h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    animation-delay: 0.3s;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    max-width: 750px;
+    margin-inline: auto;
+    animation-delay: 0.8s;
+}
+
+.hero-buttons {
+    animation-delay: 1.3s;
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-secondary {
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--sunset-orange);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-blue);
+    margin-left: 10px;
+}
+
+.btn-primary:hover, 
+.kontak-form .btn-primary:hover {
+    background-color: var(--sand-beige);
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    background-color: var(--ocean-cyan);
+    color: var(--white);
+}
+
+/* --- Grid & Cards --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: var(--shadow);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content { padding: 25px; }
+
+.card-content h3 {
+    margin-bottom: 12px;
+    color: var(--primary-blue);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Profil Section --- */
+.profil-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.feature-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.feature-list i { color: var(--ocean-cyan); font-size: 20px; }
+
+.profil-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.stat-item {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.stat-item h4 { font-size: 32px; color: var(--primary-blue); font-family: 'Poppins', sans-serif; }
+
+/* --- Gallery Grid --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.gallery-grid img:hover { transform: scale(1.03); filter: brightness(0.9); }
+
+/* --- Testimoni --- */
+.testimonial-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 6px solid var(--sand-beige);
+}
+
+.testimonial-card p { font-style: italic; font-size: 17px; margin-bottom: 15px; }
+
+.testimonial-card footer {
+    background: transparent;
+    padding: 0;
+    border: none;
+    text-align: left;
+    color: var(--sand-beige);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* --- Kontak & Form --- */
+.kontak-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+}
+
+.kontak-form {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+.input-group input:focus, .input-group textarea:focus { border-color: var(--ocean-cyan); }
+
+.kontak-info h3 { margin-bottom: 20px; color: var(--primary-blue); }
+.kontak-info p { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+.kontak-info i { color: var(--ocean-cyan); width: 20px; }
+
+/* --- Footer --- */
+footer {
+    background: #1a1a1a;
+    color: #999;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 5px solid var(--primary-blue);
+}
+
+/* =====================================
+   RESPONSIVE TABLET
+===================================== */
+@media (max-width: 992px) {
+    .profil-wrapper, 
+    .kontak-wrapper { 
+        grid-template-columns: 1fr; 
+    }
+    .hero-content {
+        padding: 0 20px;
+    }
+    .hero-content h1 { 
+        font-size: 42px; 
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =====================================
+   RESPONSIVE MOBILE
+===================================== */
+@media (max-width: 768px) {
+    .nav-links { 
+        display: none; 
+    }
+    .section-padding { 
+        padding: 60px 0; 
+    }
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .hero-content p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .btn-secondary { 
+        margin-left: 0; 
+        margin-top: 0; 
+    }
+    .grid-container,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    h2.section-title {
+        font-size: 28px;
+    }
+}
+
+/* =====================================
+   RESPONSIVE HP KECIL
+===================================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .hero-content h1 {
+        font-size: 28px;
+    }
+    .hero-content p {
+        font-size: 15px;
+    }
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+    .kontak-form {
+        padding: 25px;
+    }
+    .card img {
+        height: 180px;
+    }
+    .stat-item h4 {
+        font-size: 28px;
+    }
+}
